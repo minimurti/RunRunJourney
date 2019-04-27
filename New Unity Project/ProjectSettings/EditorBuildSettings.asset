@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/AppleLocalMultiplayer/Demos/MultiplayerDemo/MultiplayerDemo.unity
+    guid: d5984c32bb364d24ea2e169c50c137f4
+  - enabled: 0
+    path: Assets/AppleLocalMultiplayer/Demos/MultiplayerDemo/Game.unity
+    guid: 6324c2ec5ace6458391f033d8dbdd666
+  - enabled: 1
+    path: Assets/AppleLocalMultiplayer/Demos/MultiplayerDemo/Controller.unity
+    guid: 646ef8f5589e24f059a6fa2f41200fba
+  m_configObjects: {}

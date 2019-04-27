@@ -1,0 +1,441 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AppleLocalMultiplayer</name>
+    </assembly>
+    <members>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IConnectivity">
+            <summary>
+            Provides access to device's connectivity options like Bluetooth.
+            </summary>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.Connectivity">
+            <inheritdoc cref="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IConnectivity"/>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.CustomPeerDiscovery">
+            <inheritdoc cref="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomPeerDiscovery"/>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.CustomServiceAdvertiser">
+            <inheritdoc cref="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomServiceAdvertiser"/>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.PeerDiscovery">
+            <inheritdoc cref="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IPeerDiscovery"/>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ServiceAdvertiser">
+            <inheritdoc cref="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IServiceAdvertiser"/>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.Session">
+            <inheritdoc cref="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession"/>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.Log">
+            <inheritdoc cref="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ILog"/>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.StopAndDeinitializeNative">
+            <summary>
+            Stop and deinitialize native Obj-C side gracefully.
+            </summary>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.CustomPeerDiscoveryPeerFoundHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.CustomPeerDiscoveryPeerLostHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.CustomPeerDiscoveryStartFailedHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomPeerDiscovery">
+            <summary>
+            Provides full programmatic access to the peer discovery API. 
+            Allows implementing complex custom behaviours (like auto-joining the session or 
+            implementing a in-game peer discovery interface). 
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomPeerDiscovery.PeerFound">
+            <summary>
+            Occurs when a new peer is found.
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomPeerDiscovery.PeerLost">
+            <summary>
+            Occurs when a known peer is lost.
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomPeerDiscovery.StartFailed">
+            <summary>
+            Occurs when starting the discovery has failed.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomPeerDiscovery.StartDiscovery">
+            <summary>
+            Starts discovery of nearby peers.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomPeerDiscovery.StopDiscovery">
+            <summary>
+            Stop discovery of nearby peers.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomPeerDiscovery.InvitePeer(LostPolygon.Apple.LocalMultiplayer.PeerId,System.Single)">
+            <summary>
+            Invites peer <paramref name="peerId" /> to the current session.
+            </summary>
+            <param name="peerId">Invited peer.</param>
+            <param name="timeout">Maximum time for peer to accept the invitation.</param>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.InvitationHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.CustomServiceAdvertiserInvitationReceivedHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.CustomServiceAdvertiserStartFailedHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomServiceAdvertiser">
+            <summary>
+            Provides full programmatic access to the service advertiser API. 
+            Allows implementing complex custom behaviours (like auto-joining the session or 
+            implementing a in-game invitation accept/decline interface). 
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomServiceAdvertiser.InvitationReceived">
+            <summary>
+            Occurs when an invitation to join the session has been received.
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomServiceAdvertiser.StartFailed">
+            <summary>
+            Occurs when starting the advertiser has failed.
+            </summary>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomServiceAdvertiser.IsAdvertising">
+            <summary>
+            Whether advertiser is currently active.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomServiceAdvertiser.StartAdvertising(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Start advertising the current service to nearby peers.
+            </summary>
+            <param name="discoveryInfo">
+            Additional information that will be advertised to the peer browsers.
+            Keep the size of this dictionary small for best network performance.
+            </param>
+            <returns>true on success, false if already advertising.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ICustomServiceAdvertiser.StopAdvertising">
+            <summary>
+            Stops advertising of the current service to nearby peers.
+            </summary>
+            <returns>true on success, false on error.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.DispatchDeferredEvents">
+            <summary>
+            Dispatches the recorded events.
+            </summary>
+        </member>
+        <member name="F:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.NativeEvent.EventData">
+            <summary>
+            Pointer to the native event data.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.MarshalUtility.MarshalNativeArray``1(System.IntPtr,System.Int32,``0[],System.Func{System.IntPtr,``0})">
+            <summary>
+            Marshals the native array of pointers to native structs to a managed array.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.MarshalUtility.MarshalNativeArray``1(System.IntPtr,System.Int32,System.Func{System.IntPtr,``0})">
+            <summary>
+            Marshals the native array of pointers to native structs to a managed array.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.MarshalUtility.MarshalNativeStructArray``1(System.IntPtr,System.Int32)">
+            <summary>
+            Marshals a native linear array of structs to the managed array.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.MarshalUtility.MarshalStringStringDictionary(System.IntPtr,System.Int32)">
+            <summary>
+            Marshals the native representation to a IDictionary&lt;string, string&gt;.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.MarshalUtility.StringStringDictionaryToPairArray(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Marshals a IDictionary&lt;string, string&gt; to the native internal representation.
+            </summary>
+            <param name="dict">The dictionary.</param>
+            <returns></returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.MarshalUtility.PtrToStructure``1(System.IntPtr)">
+            <summary>
+            Marshals data from an unmanaged block of memory to a newly allocated managed object of the specified type.
+            </summary>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ILog">
+            <summary>
+                Controls
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ILog.SetVerboseLog(System.Boolean)">
+            <summary>
+                Enables or disables verbose log mode.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ILog.SetLogForwarding(System.Boolean)">
+            <summary>
+                Enables or disables forwarding native logs to Unity.
+            </summary>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.PeerDiscoveryCancelledHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.PeerDiscoveryFinishedHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.PeerDiscoveryNearbyPeerPresentingHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IPeerDiscovery">
+            <summary>
+            Access to the native built-in service advertiser. 
+            Whenever another peer sends an invitation, present a dialog that allows declining or accepting the invitation. 
+            Very easy to use and setup, but limited to a single interaction model.
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IPeerDiscovery.Cancelled">
+            <summary>
+            Occurs when "Cancel" button is pressed in the peer browser UI.
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IPeerDiscovery.Finished">
+            <summary>
+            Occurs when "Finish" button is pressed in the peer browser UI.
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IPeerDiscovery.NearbyPeerPresenting">
+            <summary>
+            Occurs when a peer is found and is about to be presented in the peer browser UI.
+            Note: this event is called on a background thread, which means that you can't access Unity APIs
+            from within the handler of this event.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IPeerDiscovery.OpenBrowser(System.Int32,System.Int32)">
+            <summary>
+            Opens the peer browser UI.
+            </summary>
+            <returns>true on success, false on error.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IPeerDiscovery.CloseBrowser">
+            <summary>
+            Closes the peer browser UI.
+            </summary>
+            <returns>true on success, false on error.</returns>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ServiceAdvertiserInvitationDismissedHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ServiceAdvertiserInvitationPresentingHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IServiceAdvertiser">
+            <summary>
+            Access to the native built-in service advertiser. 
+            Whenever another peer sends an invitation, present a dialog that allows declining or accepting the invitation. 
+            Very easy to use and setup, but limited to a single interaction model.
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IServiceAdvertiser.InvitationDismissed">
+            <summary>
+            Occurs when user taps "Dismiss" or "Accept" in the incoming invitation UI.
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IServiceAdvertiser.InvitationPresenting">
+            <summary>
+            Occurs when incoming invitation UI is about to be shown.
+            </summary>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IServiceAdvertiser.IsAdvertising">
+            <summary>
+            Whether advertiser is currently active.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IServiceAdvertiser.StartAdvertising(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Start advertising the current service to nearby peers.
+            </summary>
+            <param name="discoveryInfo">
+            Additional information that will be advertised to the peer browsers.
+            Keep the size of this dictionary small for best network performance.
+            </param>
+            <returns>true on success, false on error.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.IServiceAdvertiser.StopAdvertising">
+            <summary>
+            Stops advertising of the current service to nearby peers.
+            </summary>
+            <returns>true on success, false on error.</returns>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.SessionPeerStateChangedHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.SessionStartedHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.SessionStoppedHandler">
+            <tocexclude />
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession">
+            <summary>
+            Provides access to the local multiplayer session, setting the peer name,
+            service type, getting other peers that are connected to the session.
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.PeerStateChanged">
+            <summary>
+            Occurs when the connection state of a peer has changed.
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.Started">
+            <summary>
+            Occurs when session has been started.
+            </summary>
+        </member>
+        <member name="E:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.Stopped">
+            <summary>
+            Occurs when session has been stopped.
+            </summary>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.IsSessionActive">
+            <summary>
+            Whether session is currently active.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.SetServiceType(System.String)">
+            <summary>
+            Sets the service type identifier.
+            </summary>
+            <param name="serviceType">
+            Text identifier of the service. Effectively, the name of the "room".
+            Must be the same for all peers who want to join the session.
+            Can be up to 15 characters long,
+            valid characters are ASCII lowercase letters, numbers, and the hyphen.</param>
+            <returns>true on success, false on error.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.SetLocalPeerName(System.String)">
+            <summary>
+            Sets the name of the local peer.
+            </summary>
+            <param name="localPeerName">
+            Name of the local peer that will be displayed to peer browsers.
+            Can be up to 63 bytes in UTF8 encoding.
+            </param>
+            <returns>true on success, false on error.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.SetServerPort(System.Int32)">
+            <summary>
+            Sets the server port. Must be called before starting the networking server.
+            </summary>
+            <param name="port">Server port number. Must be the same as used by the networking server.</param>
+            <returns>true on success, false on error.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.StartSession">
+            <summary>
+            Starts the session.
+            </summary>
+            <returns>true on success, false on error.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.StopSession">
+            <summary>
+            Disconnects current device from the session, stops all service advertisers and peer browsers.
+            </summary>
+            <returns>true on success, false if session is not started, or on error.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.GetConnectedPeersCount">
+            <summary>
+            Gets the number of peers that are connected to the session.
+            </summary>
+            <returns>Number of peers that are connected to the session.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.GetConnectedPeers">
+            <summary>
+            Gets the array of peers that are connected to the session.
+            </summary>
+            <returns>Array of peers that are connected to the session.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.ISession.GetConnectedPeers(LostPolygon.Apple.LocalMultiplayer.PeerId[])">
+            <summary>
+            Gets peers that are connected to the session, and stores them in the provided buffer.
+            </summary>
+            <param name="results">The buffer to store the results in.</param>
+            <returns>The amount of peers stored to the <paramref name="results"/> buffer.</returns>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.Utility.StringToValidServiceTypeName(System.String)">
+            <summary>
+            Transforms a string into a valid service type name. It can be up to 15 characters long,
+            valid characters are ASCII lowercase letters, numbers, and the hyphen.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.AppleLocalMultiplayer.Utility.TruncateStringToEncodingBytes(System.String,System.Int32,System.Text.Encoding)">
+            <summary>
+            Truncates the strings to a number of bytes in a given encoding.
+            </summary>
+            <param name="str">String to truncate</param>
+            <param name="maxByteCount">Maximum number of bytes the string can take in <paramref name="encoding"/></param>
+            <param name="encoding">Target encoding. UTF8 is used if null</param>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.Internal.NativeMethods">
+            <summary>
+            Contains all the native Objective-C methods that are called from Unity.
+            </summary>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.Internal.NSObject">
+            <summary>
+            Wrapper for the native Objective-C NSObject. Automatically decreases the reference counter when GC'd.
+            </summary>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.Internal.SingletonMonoBehaviour`1">
+            <summary>
+            A reliable singleton implementation for <seealso cref="T:UnityEngine.MonoBehaviour" />. Makes sure only one instance ever exists.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="T:UnityEngine.MonoBehaviour" />
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.Internal.SingletonMonoBehaviour`1.Instance">
+            <summary>
+            A reference to singleton instance.
+            </summary>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.Internal.SingletonMonoBehaviour`1.IsDestroyed">
+            <summary>
+            Gets a value indicating whether this instance is in process of being destroyed.
+            </summary>
+        </member>
+        <member name="M:LostPolygon.Apple.LocalMultiplayer.Internal.SingletonMonoBehaviour`1.UpdateInstance">
+            <summary>
+            Tries to find an existing instance in the scene,
+            and creates one if there were none.
+            </summary>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.Internal.UnityMessagesBroadcaster">
+            <summary>
+            Provides static access to global Unity messages.
+            </summary>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.PeerId">
+            <summary>
+            Uniquely represents a peer of the local multiplayer session.
+            </summary>
+        </member>
+        <member name="P:LostPolygon.Apple.LocalMultiplayer.PeerId.Name">
+            <summary>
+            Name of the peer.
+            </summary>
+        </member>
+        <member name="T:LostPolygon.Apple.LocalMultiplayer.PeerState">
+            <summary>
+            Peer connection state.
+            </summary>
+        </member>
+    </members>
+</doc>
